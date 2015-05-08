@@ -1,0 +1,18 @@
+dict(
+    source=["d:/data/smt/binarized_text.shuffled.en.h5"],
+    target=["d:/data/smt/binarized_text.shuffled.fr.h5"],
+    indx_word="d:/data/smt/ivocab.en.pkl",
+    word_indx="d:/data/smt/vocab.en.pkl",
+    indx_word_target="d:/data/smt/ivocab.fr.pkl",
+    word_indx_trgt="d:/data/smt/ivocab.fr.pkl",
+    oov="<UNK>",
+    null_sym_source=30000,
+    null_sym_target=30000,
+    n_sym_source=30001,
+    n_sym_target=30001,
+    seqlen=30,
+    bs=80,
+    dim=1000,
+    rank_n_approx=620,
+    prefix='encdec_'
+)
