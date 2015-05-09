@@ -27,6 +27,7 @@ python shuffle-hdf5.py d:/data/smt/binarized_text.en.h5 d:/data/smt/binarized_te
 
 # training
 
+set THEANO_FLAGS=mode=FAST_RUN,device=gpu0
 python train.py --state D:\tools\GroundHog\experiments\nmt\steps\s01.state.py
 
 
@@ -64,5 +65,6 @@ python shuffle-hdf5.py d:/data/smt/binarized_text.en.300.h5 d:/data/smt/binarize
 
 # train models
 # replaced the directories to point to the file locations in local
+set THEANO_FLAGS=mode=FAST_RUN,device=gpu1
 python train.py --state D:\tools\GroundHog\experiments\nmt\steps\s00.dryrun.state.py
 
