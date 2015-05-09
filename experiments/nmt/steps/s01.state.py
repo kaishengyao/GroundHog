@@ -1,6 +1,6 @@
 dict(
-    source=["d:/data/smt/binarized_text.shuffled.en.h5"],
-    target=["d:/data/smt/binarized_text.shuffled.fr.h5"],
+    source=["d:/data/smt/binarized_text.en.shuf.h5"],
+    target=["d:/data/smt/binarized_text.fr.shuf.h5"],
     indx_word="d:/data/smt/ivocab.en.pkl",
     word_indx="d:/data/smt/vocab.en.pkl",
     indx_word_target="d:/data/smt/ivocab.fr.pkl",
@@ -14,5 +14,5 @@ dict(
     bs=80,
     dim=1000,
     rank_n_approx=620,
-    prefix='encdec_'
+    prefix='encdec_30kvoc_'
 )
