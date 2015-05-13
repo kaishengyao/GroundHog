@@ -71,8 +71,13 @@ files for debugging purpose.
 
 ####Using training script
 
+Before training, go to the root directory of GroundHog and install it
+'''
+python setup.py install
+'''
+
 ```
-set THEANO_FLAGS=mode=FAST_RUN,device=gpu0
+set THEANO_FLAGS=mode=FAST_RUN,device=gpu3
 python ../nmt/train.py --state D:/tools/GroundHog/experiments/newscomments/state.py
 ```
 would start training in the current directory. Building a model and compiling
