@@ -99,7 +99,7 @@ class loadJson(object):
         f = open(fn1, 'w')
         try:
             for c in self.content:
-                s = str(id) + ' ' + c + '\n'
+                s = c + '\n'
                 f.write(s.encode("UTF-8"))
                 id += 1
         finally:
@@ -109,7 +109,7 @@ class loadJson(object):
         f = open(fn2, 'w')
         try:
             for c in self.comments:
-                s = str(id) + ' ' + c + '\n'
+                s = c + '\n'
                 f.write(s.encode("UTF-8"))
                 id += 1
         finally:
