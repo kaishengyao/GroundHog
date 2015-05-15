@@ -41,29 +41,29 @@ In experiments/newscomments/preprocess, we provide scripts that we use to genera
 data files from a parallel corpus saved in .txt files.
 
 # read news from articles
-python extract_news_and_comments.py -d D:/data/Articles/2015/03-23 -o d:/data/newscomments/2015/03-23/news.txt -m d:/data/newscomments/2015/03-23/comments.txt
+python extract_news_and_comments.py -d D:/data/Articles/2015/03-23 -o d:/data/newscomments/45wrds/2015/03-23/news.txt -m d:/data/newscomments/45wrds/2015/03-23/comments.txt -l 45
 
 # preprocess data to have 3000-vocabulary English data (source side)
 
 ```
-python ../../nmt/preprocess/preprocess.py -d d:/data/newscomments/2015/03-23/vocab.news.pkl -v 3000 -b d:/data/newscomments/2015/03-23/binarized_text.news.pkl -p d:/data/newscomments/2015/03-23/news.txt
-python ../../nmt/preprocess/preprocess.py -d d:/data/newscomments/2015/03-23/vocab.comments.pkl -v 3000 -b d:/data/newscomments/2015/03-23/binarized_text.comments.pkl -p d:/data/newscomments/2015/03-23/comments.txt
+python ../../nmt/preprocess/preprocess.py -d d:/data/newscomments/45wrds/2015/03-23/vocab.news.pkl -v 3000 -b d:/data/newscomments/45wrds/2015/03-23/binarized_text.news.pkl -p d:/data/newscomments/45wrds/2015/03-23/news.txt
+python ../../nmt/preprocess/preprocess.py -d d:/data/newscomments/45wrds/2015/03-23/vocab.comments.pkl -v 3000 -b d:/data/newscomments/45wrds/2015/03-23/binarized_text.comments.pkl -p d:/data/newscomments/45wrds/2015/03-23/comments.txt
 ```
 This will create a dictionary (vocab.en.pkl) of 3,000 most frequent words and a
 pickle file (binarized_text.pkl) that contains a list of numpy arrays of which
 each corresponds to each line in the text files.
 ```
-python ../../nmt/preprocess/invert-dict.py d:/data/newscomments/2015/03-23/vocab.news.pkl d:/data/newscomments/2015/03-23/ivocab.news.pkl
-python ../../nmt/preprocess/invert-dict.py d:/data/newscomments/2015/03-23/vocab.comments.pkl d:/data/newscomments/2015/03-23/ivocab.comments.pkl
+python ../../nmt/preprocess/invert-dict.py d:/data/newscomments/45wrds/2015/03-23/vocab.news.pkl d:/data/newscomments/45wrds/2015/03-23/ivocab.news.pkl
+python ../../nmt/preprocess/invert-dict.py d:/data/newscomments/45wrds/2015/03-23/vocab.comments.pkl d:/data/newscomments/45wrds/2015/03-23/ivocab.comments.pkl
 ```
 This will generate an inverse dictionary (id -> word).
 ```
-python ../../nmt/preprocess/convert-pkl2hdf5.py d:/data/newscomments/2015/03-23/binarized_text.news.pkl d:/data/newscomments/2015/03-23/binarized_text.news.h5
-python ../../nmt/preprocess/convert-pkl2hdf5.py d:/data/newscomments/2015/03-23/binarized_text.comments.pkl d:/data/newscomments/2015/03-23/binarized_text.comments.h5
+python ../../nmt/preprocess/convert-pkl2hdf5.py d:/data/newscomments/45wrds/2015/03-23/binarized_text.news.pkl d:/data/newscomments/45wrds/2015/03-23/binarized_text.news.h5
+python ../../nmt/preprocess/convert-pkl2hdf5.py d:/data/newscomments/45wrds/2015/03-23/binarized_text.comments.pkl d:/data/newscomments/45wrds/2015/03-23/binarized_text.comments.h5
 ```
 This will convert the generated pickle file into an HDF5 format.
 ```
-python ../../nmt/preprocess/shuffle-hdf5.py d:/data/newscomments/2015/03-23/binarized_text.news.h5 d:/data/newscomments/2015/03-23/binarized_text.comments.h5 d:/data/newscomments/2015/03-23/binarized_text.news.shuf.h5 d:/data/newscomments/2015/03-23/binarized_text.comments.shuf.h5
+python ../../nmt/preprocess/shuffle-hdf5.py d:/data/newscomments/45wrds/2015/03-23/binarized_text.news.h5 d:/data/newscomments/45wrds/2015/03-23/binarized_text.comments.h5 d:/data/newscomments/45wrds/2015/03-23/binarized_text.news.shuf.h5 d:/data/newscomments/45wrds/2015/03-23/binarized_text.comments.shuf.h5
 ```
 Since it can be very expensive to shuffle the dataset each time you train a
 model, we shuffle dataset in advance. However, note that we do keep the original
